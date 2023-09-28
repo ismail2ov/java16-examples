@@ -1,6 +1,7 @@
 package com.github.ismail2ov;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchThrowable;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -35,5 +36,18 @@ class RecordsTest {
     void testRecordWithInstanceMethod() {
 
         assertThat(carRecord.isNewCar()).isFalse();
+    }
+
+    @Test
+    void testCreateBlankCarRecord() {
+        var actual = CarRecord.createBlankCarRecord();
+
+        Throwable thrown = catchThrowable(() -> {
+            boolean isNewCar = actual.isNewCar();
+        });
+
+        assertThat(thrown)
+            .isInstanceOf(StringIndexOutOfBoundsException.class)
+            .hasMessageEndingWith("begin 3, end 3, length 0");
     }
 }

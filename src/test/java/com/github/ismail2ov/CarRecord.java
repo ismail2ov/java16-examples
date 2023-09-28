@@ -4,6 +4,10 @@ public record CarRecord(String regNumber, String owner) {
 
     public static final String LICENSE_PLATE_LETTERS = "MDG";
 
+    public static CarRecord createBlankCarRecord() {
+        return new CarRecord("", "");
+    }
+
     public boolean isNewCar() {
         return regNumber().substring(3, 3).equals(LICENSE_PLATE_LETTERS);
     }
