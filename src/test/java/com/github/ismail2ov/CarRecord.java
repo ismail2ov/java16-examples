@@ -10,6 +10,10 @@ public record CarRecord(String regNumber, String owner) {
         }
     }
 
+    public CarRecord(String regNumber) {
+        this(regNumber, "");
+    }
+
     public static CarRecord createBlankCarRecord() {
         return new CarRecord("", "");
     }

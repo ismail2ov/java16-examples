@@ -49,4 +49,13 @@ class RecordsTest {
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageEndingWith("regNumber must be 7 characters");
     }
+
+    @Test
+    void testNonCanonicalRecordConstructor() {
+
+        CarRecord carRecord = new CarRecord(REG_NUMBER);
+
+        assertThat(carRecord.regNumber()).isEqualTo(REG_NUMBER);
+        assertThat(carRecord.owner()).isEmpty();
+    }
 }
