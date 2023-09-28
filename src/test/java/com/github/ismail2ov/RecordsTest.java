@@ -40,14 +40,13 @@ class RecordsTest {
 
     @Test
     void testCreateBlankCarRecord() {
-        var actual = CarRecord.createBlankCarRecord();
 
         Throwable thrown = catchThrowable(() -> {
-            boolean isNewCar = actual.isNewCar();
+            var actual = CarRecord.createBlankCarRecord();
         });
 
         assertThat(thrown)
-            .isInstanceOf(StringIndexOutOfBoundsException.class)
-            .hasMessageEndingWith("begin 3, end 3, length 0");
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessageEndingWith("regNumber must be 7 characters");
     }
 }
