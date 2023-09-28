@@ -22,4 +22,8 @@ public record CarRecord(String regNumber, String owner) {
         return regNumber().substring(3, 3).equals(LICENSE_PLATE_LETTERS);
     }
 
+    @Override
+    public String owner() {
+        return owner.toUpperCase();
+    }
 }

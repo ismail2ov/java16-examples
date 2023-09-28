@@ -17,7 +17,7 @@ public class Car {
     }
 
     public String getOwner() {
-        return owner;
+        return owner.toUpperCase();
     }
 
     @Override
