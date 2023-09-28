@@ -4,12 +4,10 @@ public record CarRecord(String regNumber, String owner) {
 
     public static final String LICENSE_PLATE_LETTERS = "MDG";
 
-    public CarRecord(String regNumber, String owner) {
+    public CarRecord {
         if (regNumber.length() != 7) {
             throw new IllegalArgumentException("regNumber must be 7 characters");
         }
-        this.regNumber = regNumber;
-        this.owner = owner;
     }
 
     public static CarRecord createBlankCarRecord() {
